@@ -48,7 +48,7 @@ app.post("/", function(req, res){
         response.on("end", function() {
           const responseObject = JSON.parse(responseData);
     
-          if (responseObject.errors.length == 0) {
+          if (responseObject.errors && responseObject.errors.length == 0) {
             res.writeHead(302, { Location: "https://krishfirstreactproject.netlify.app" });
             res.end();
           } else {
